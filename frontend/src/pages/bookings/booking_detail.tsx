@@ -7,8 +7,11 @@ type Booking = {
   booking_id: number;
   room_id: number;
   user_id: number;
-  start_time: string;
-  end_time: string;
+  meeting_name: string;
+  room_name: string;
+  username: string;
+  start_datetime: string;
+  end_datetime: string;
 }
 
 export const BookingDetail: React.FC = () => {
@@ -33,11 +36,11 @@ export const BookingDetail: React.FC = () => {
   return (
     <div>
       <h1>Booking Detail</h1>
-      <p>{booking.booking_id}</p>
-      <p>{booking.room_id}</p>
-      <p>{booking.user_id}</p>
-      <p>{booking.start_time}</p>
-      <p>{booking.end_time}</p>
+      <p>会議室：<a href={`/rooms/${booking.room_id}`}>{booking.room_name}</a></p>
+      <p>会議名：{booking.meeting_name}</p>
+      <p>予約者：<a href={`/users/${booking.user_id}`}>{booking.username}</a></p>
+      <p>開始：{booking.start_datetime}</p>
+      <p>終了：{booking.end_datetime}</p>
     </div>
   );
 }

@@ -49,7 +49,10 @@ def get_bookings(db: Session, skip: int = 0, limit: int = 100):
 
 # 予約を取得する
 def get_booking(db: Session, booking_id: int):
-    return db.query(models.Booking).filter(models.Booking.booking_id == booking_id).first()
+    return db.query(models.Booking).options(
+        joinedload(models.Booking.user),
+        joinedload(models.Booking.room)
+    ).filter(models.Booking.booking_id == booking_id).first()
 
 
 # 予約を作成する

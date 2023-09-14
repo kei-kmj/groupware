@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from './pages/home';
+import { Portal } from './pages/portal';
 import { Users } from './pages/users/users';
 import { UserDetail } from './pages/users/user_detail';
 import { UserForm } from './pages/users/user_form';
@@ -16,6 +17,7 @@ const App: React.FC = () => {
   return (
     <Router><Routes>
       <Route path="/" element={<Home/>}/>
+      <Route path="/portal" element={<Portal/>}/>
       <Route path="/users" element={<Users/>}/>
       <Route path="/users/:user_id" element={<UserDetail/>}/>
       <Route path="/users/new" element={<UserForm/>}/>
